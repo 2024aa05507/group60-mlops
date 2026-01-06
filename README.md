@@ -7,7 +7,7 @@
  5. Tumuganti Vennela (2024aa05795)
 
 ## Video Overview (clicking the image thumbnail below will open the video in YouTube)
-[![Video Thumbnail Alt Text](https://img.youtube.com/vi/QvEMNJcVCmE/0.jpg)](https://www.youtube.com/watch?v=QvEMNJcVCmE)
+<a href="https://www.youtube.com/watch?v=QvEMNJcVCmE" target="_blank" rel="noopener noreferrer"><img src="https://img.youtube.com/vi/QvEMNJcVCmE/0.jpg"></a>
 
 ## Project Overview
 This project demonstrates a production-grade MLOps pipeline for predicting the presence of heart disease. It utilizes the **Heart Disease UCI Dataset** and implements a full lifecycle workflow including:
