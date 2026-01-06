@@ -1,39 +1,23 @@
-This is a documentation file that serves as the repository landing page (A separate PDF report with screenshots is given)
-📝 ## MLOps - Group 60: 
+#### This is a documentation file that serves as the repository landing page (A separate PDF report with screenshots is given)
+## MLOps - Group 60: 
  1. Amod Suresh Puranik (2024aa5507)
  2. Shruthi K (2024aa05806)
  3. Kuna Simha Chalam (2024aa05131)
  4. Lakkavajjala Sowmya (2024aa05317)
  5. Tumuganti Vennela (2024aa05795)
 
-📌 Project Overview
+## Project Overview
 This project demonstrates a production-grade MLOps pipeline for predicting the presence of heart disease. It utilizes the **Heart Disease UCI Dataset** and implements a full lifecycle workflow including:
 
 * **Data Ingestion & Versioning** (UCI Repository)
 * **Experiment Tracking** (MLflow)
 * **Model Packaging** (Docker)
-* **CI/CD Automation** (GitHub Actions)
+* **Package manager, CI/CD integration** (Helm)
 * **Orchestration & Deployment** (Kubernetes)
 * **Monitoring** (Prometheus/Grafana)
 
 ## 📂 Repository Structure
-
-
-heart-disease-mlops/
-├── .github/workflows/                      # CI/CD Pipeline definitions
-├── api/                                    # FastAPI application & Dockerfile
-├── data/                                   # Local data storage (ignored in git)
-├── k8s/                                    # Kubernetes manifests (Deployment & Service)
-├── mlruns/                                 # Various ML runs
-├── models/                                 # Serialized model (joblib)
-├── notebooks/                              # Jupyter notebooks for EDA & Experiments
-├── src/                                    # Source code for training and processing
-├── tests/                                  # Unit and integration tests       
-├── Group60-MLOps-Assignment-Report.pdf     # Our Full project report
-├── Group60-MLOps-Architecture-diagram.pdf  # Project architecture diagram (large sized)
-├── requirements.txt                        # Python dependencies
-└── README.md                               # Project documentation
-
+<img width="1189" height="438" alt="image" src="https://github.com/user-attachments/assets/049d2ebf-388a-4400-abb7-a009773e803d" />
 
 ## 🚀 Getting Started
 
@@ -47,16 +31,13 @@ heart-disease-mlops/
 * Helm
 
 ### 2. Installation
-
 * Install Docker Desktop and WSL (if deploying on local machine)
 * Enable Kubernetes in Docker > Settings
 * Build the Container Image
 * Orchestrate with Helm
 * Verify pod health
 
-
 ## 3. Data & Training Pipeline
-
 ### Step 1: Data Acquisition & EDA
 
 Download the latest data from the UCI repository and perform EDA:
@@ -68,28 +49,21 @@ python src/data_loader.py
 ```
 
 ### Step 2: Model Training with Experiment Tracking
-
 Train the model. This script automatically logs metrics and artifacts to MLflow.
 
 ```bash
 python src/train.py
 
 ```
-
 * **Artifacts:** The best model is saved to `models/model.joblib`.
 
-
 ## 4. Docker Containerization
-
 ### Step 1: Build the API container locally:
-
 ```bash
 docker build -t heart-disease-api:v4 -f api/Dockerfile .
 
 ```
-
 ### Step 2: Use Helm to deploy Kubernetes manifests:
-
 ```bash
 helm install heart-prediction ./charts/heart-disease-api `
   --set image.repository=heart-disease-api `
@@ -99,7 +73,6 @@ helm install heart-prediction ./charts/heart-disease-api `
 ```
 
 ### Step 3: Verify pod health:
-
 ```bash
 kubectl get pods
 kubectl get endpoints heart-service
@@ -109,11 +82,8 @@ kubectl get endpoints heart-service
 The API will be available at `http://localhost:8081` (Swagger UI).
 
 ## 5. API Usage
-
 **Endpoint:** `/predict`
-
 **Method:** `POST`
-
 **Sample Request:** Use the following sample JSON input in either the web UI (click "Try it out") or through PowerShell
 
 ```json
@@ -134,9 +104,7 @@ The API will be available at `http://localhost:8081` (Swagger UI).
 }
 
 ```
-
 **Sample Response:**
-
 ```json
 {
   "prediction": 1,
