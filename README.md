@@ -6,7 +6,8 @@
  4. Lakkavajjala Sowmya (2024aa05317)
  5. Tumuganti Vennela (2024aa05795)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/QvEMNJcVCmE?si=VpxzvY5CDuVAiBDi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+## Video Overview (clicking the image thumbnail below will open the video in YouTube)
+[![Video Thumbnail Alt Text](https://img.youtube.com/vi/QvEMNJcVCmE/0.jpg)](https://www.youtube.com/watch?v=QvEMNJcVCmE)
 
 ## Project Overview
 This project demonstrates a production-grade MLOps pipeline for predicting the presence of heart disease. It utilizes the **Heart Disease UCI Dataset** and implements a full lifecycle workflow including:
