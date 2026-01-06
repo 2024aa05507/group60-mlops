@@ -6,7 +6,8 @@
  4. Lakkavajjala Sowmya (2024aa05317)
  5. Tumuganti Vennela (2024aa05795)
 
-## Video Overview (clicking the image thumbnail below will open the video in YouTube)
+## Video Overview 
+#### (NOTE: Please Right Click the image thumbnail below to open the YouTube video in new tab as GitHub sanitizes 'target' tag)
 <a href="https://www.youtube.com/watch?v=QvEMNJcVCmE" target="_blank" rel="noopener noreferrer"><img src="https://img.youtube.com/vi/QvEMNJcVCmE/0.jpg"></a>
 
 ## Project Overview
