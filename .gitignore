@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# Models & Data (Large files)
+# Only track the final .joblib if it's small (<100MB)
+*.ipynb_checkpoints
+
+# IDEs
+.vscode/
+.idea/
+
+# Helm & K8s
+.helm/

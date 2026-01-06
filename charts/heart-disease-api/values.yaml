@@ -1,0 +1,26 @@
+replicaCount: 2
+image:
+  repository: heart-disease-api
+  tag: v1
+  pullPolicy: IfNotPresent
+service:
+  type: LoadBalancer
+  port: 80
+  targetPort: 8000
+# Monitoring Configuration
+monitoring:
+  enabled: true
+  prometheus:
+    image: prom/prometheus:latest
+    port: 9090
+    serviceType: ClusterIP
+  grafana:
+    image: grafana/grafana:latest
+    port: 3000
+    serviceType: LoadBalancer  # So you can access the dashboard via localhost:3000
+
+# API Metrics Configuration
+metrics:
+  enabled: true
+  path: /metrics
+  port: 8000

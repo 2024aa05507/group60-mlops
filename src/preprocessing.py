@@ -1,0 +1,48 @@
+import pandas as pd
+from sklearn.base import BaseEstimator, TransformerMixin
+from sklearn.pipeline import Pipeline
+from sklearn.impute import SimpleImputer
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.compose import ColumnTransformer
+
+def get_pipeline():
+    # Define features
+    numeric_features = ['age', 'trestbps', 'chol', 'thalach', 'oldpeak']
+    categorical_features = ['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal']
+    
+    # Numerical: Impute Missing -> Scale
+    numeric_transformer = Pipeline(steps=[
+        ('imputer', SimpleImputer(strategy='median')),
+        ('scaler', StandardScaler())
+    ])
+    
+    # Categorical: Impute Missing -> OneHot Encode
+    categorical_transformer = Pipeline(steps=[
+        ('imputer', SimpleImputer(strategy='most_frequent')),
+        ('onehot', OneHotEncoder(handle_unknown='ignore'))
+    ])
+    
+    preprocessor = ColumnTransformer(
+        transformers=[
+            ('num', numeric_transformer, numeric_features),
+            ('cat', categorical_transformer, categorical_features)
+        ])
+        
+    return preprocessor
+
+def load_and_clean_data(path):
+    df = pd.read_csv(path)
+
+    if "num" in df.columns:
+        df["target"] = df["num"].apply(lambda x: 1 if x > 0 else 0)
+    elif "target" in df.columns:
+        df["target"] = df["target"]
+    elif "output" in df.columns:
+        df["target"] = df["output"]
+    else:
+        raise ValueError(f"No target column found. Columns: {df.columns.tolist()}")
+
+    X = df.drop(columns=["target"])
+    y = df["target"]
+
+    return X, y

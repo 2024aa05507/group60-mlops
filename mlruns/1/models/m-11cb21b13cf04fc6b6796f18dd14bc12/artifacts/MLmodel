@@ -1,0 +1,22 @@
+artifact_path: file:C:/Users/Amod Puranik/Dropbox/My PC (LAPTOP-U2DVTUK7)/Desktop/Group60-MLOps/mlruns/1/models/m-11cb21b13cf04fc6b6796f18dd14bc12/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.11.9
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.4.2
+mlflow_version: 3.8.1
+model_id: m-11cb21b13cf04fc6b6796f18dd14bc12
+model_size_bytes: 3806
+model_uuid: m-11cb21b13cf04fc6b6796f18dd14bc12
+prompts: null
+run_id: 87260b1360af4aa7988f883c47408924
+utc_time_created: '2026-01-05 13:39:54.430505'

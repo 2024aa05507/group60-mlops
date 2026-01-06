@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: heart-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: heart-api
+  template:
+    metadata:
+      labels:
+        app: heart-api
+    spec:
+      containers:
+      - name: api
+        image: heart-disease-api:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8000
+      - name: heart-container
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        ports:
+        - containerPort: {{ .Values.service.targetPort | default 8000 }}
+        # Add env variable if your code needs to know metrics are enabled
+        env:
+        - name: ENABLE_METRICS
+          value: {{ .Values.monitoring.enabled | quote }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: heart-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: heart-api
+  ports:
+  - port: 80
+    targetPort: 8000
